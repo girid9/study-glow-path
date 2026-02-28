@@ -358,8 +358,20 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      increment_battle_score: {
+        Args: { p_points: number; p_room_id: string; p_user_id: string }
+        Returns: undefined
+      }
       is_battle_room_member: {
         Args: { p_room_id: string; p_user_id: string }
+        Returns: boolean
+      }
+      is_room_host: {
+        Args: { p_room_id: string; p_session_id: string }
+        Returns: boolean
+      }
+      is_room_player: {
+        Args: { p_room_id: string; p_session_id: string }
         Returns: boolean
       }
     }
