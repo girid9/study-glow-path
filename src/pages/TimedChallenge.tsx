@@ -170,8 +170,7 @@ const TimedChallenge = () => {
     (label: string) => {
       if (chosenLabel || !q) return;
       setChosenLabel(label);
-      \1
-      try { recordAttempt({ subjectId: subjectId!, topicId: topicId!, questionId: String(currentQuestion.id ?? currentQuestion.question), correct: isCorrect }); } catch {}
+      const isCorrect = label === q.answer;
       setAnswers((prev) => [...prev, { correct: isCorrect }]);
       setTimeout(advanceToNext, 200);
     },

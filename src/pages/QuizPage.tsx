@@ -8,9 +8,6 @@ import NeuralDust from "@/components/NeuralDust";
 import { useSpacedRepetition } from "@/hooks/useSpacedRepetition";
 import ConceptGraph from "@/components/ConceptGraph";
 import MemoryPalace from "@/components/MemoryPalace";
-import { recordAttempt, toggleBookmark, loadProgress } from "@/lib/progress";
-import { Button } from "@/components/ui/button";
-import { Bookmark } from "lucide-react";
 
 const optionLabels = ["A", "B", "C", "D"] as const;
 const optionKeys = ["option_a", "option_b", "option_c", "option_d"] as const;
@@ -231,7 +228,6 @@ const QuizPage = () => {
       setChosenLabel(label);
       setRevealed(true);
       const isCorrect = label === q.answer;
-      try { recordAttempt({ subjectId: subjectId!, topicId: topicId!, questionId: String(q.question), correct: isCorrect }); } catch {}
       setAnswers((prev) => [...prev, { question: q, chosen: label, correct: isCorrect }]);
 
       if (!isCorrect && subjectId && topicId) {

@@ -100,8 +100,3 @@ export function getCorrectOption(q: Question): string {
   };
   return map[q.answer] || "";
 }
-
-
-export function getAllSubjects() {
-  return subjects;
-}
